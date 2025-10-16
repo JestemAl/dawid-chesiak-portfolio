@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/* Global basics */
+:root { color-scheme: dark; }
+
+
+html, body, #root {
+   height: 100%; 
+}
+
+body {
+  @apply bg-slate-950 text-slate-100 antialiased;
+}
+
+/* Przydatne dla R3F: płótno w pełnej wysokości, bez marginesów */
+#root > div,  /* Vite/React root wrapper */
+canvas { display: block; }
+
+/* Opcjonalnie: gładkie przewijanie dla GSAP/scroll scen */
+html { scroll-behavior: smooth; }
