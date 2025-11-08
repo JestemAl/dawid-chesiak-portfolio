@@ -1,37 +1,38 @@
-import { Canvas } from "@react-three/fiber"
-import Experience from "./components/Experience"
-import { ScrollControls } from "@react-three/drei"
-import ScrollManager from "./components/ScrollManager"
-import { useState } from "react"
 
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import Hero from "./components/sections/Hero";
+import About from "./components/sections/About";
+import Gallery from "./components/sections/Gallery";
+
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
 
 function App() {
 
+  useGSAP(() => {
+    let smoother = ScrollSmoother.create({
+      wrapper: '#wrapper',
+      content: '#content',
+      smooth: 2,
+      smoothTouch: 0.1,
+      effects: true
+    })
+
+    smoother.effects('.gallery-content img', { speed: "auto" })
+  })
+
   return (
     <>
-
-        <Canvas
-          dpr={[1, 2]}
-          camera={{
-            position: [0, 0, 6],
-            fov: 45
-          }}
-          >
-          <color attach='background' args={['#333']} />
-
-          <ScrollControls
-            infinite={ false }
-            pages={ 10 }
-            damping={false}
-          >
-            <ScrollManager />
-
-
-            <Experience />
-            
-          </ScrollControls>
-
-        </Canvas>
+      <main id="wrapper">
+        <div id="content">
+          <Hero />
+          <About />
+          {/* <Gallery /> */}
+        </div>
+      </main>
     </>
   )
 }

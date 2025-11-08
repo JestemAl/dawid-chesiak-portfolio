@@ -15,7 +15,6 @@ const ScrollManager = () => {
     const t = Math.min(Math.max(data.scroll.current, 0), 0.999999)   // zakres [0, 1]
     setOffset(t)
     
-    
     const next = Math.floor(t * data.pages) + 1                     // zakres [1, 10]
 
     if (next !== last.current) {

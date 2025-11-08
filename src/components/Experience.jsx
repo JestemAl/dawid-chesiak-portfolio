@@ -9,22 +9,15 @@ const Experience = () => {
 
 
   return <>
-    <Sky />
-    <Clouds />
-    <CameraAnimations />
-
-    <axesHelper args={[5]} />
-    <gridHelper args={[10, 10]} />
     
-    <mesh>
-        <boxGeometry args={[2,2,2]} />
-        <meshNormalMaterial />
-    </mesh>
 
-    <mesh position={[0, 0 ,20]}>
-        <boxGeometry args={[2,2,2]} />
-        <meshNormalMaterial />
-    </mesh>
+    <Scroll>
+      <mesh position={[]}>
+          <boxGeometry args={[2,2,2]} />
+          <meshNormalMaterial />
+      </mesh>
+    </Scroll>
+
 
   {/* <OrbitControls /> */}
 
