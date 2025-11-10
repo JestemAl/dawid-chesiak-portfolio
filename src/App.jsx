@@ -5,7 +5,9 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
+import Dawid from "./components/sections/Dawid";
 import Gallery from "./components/sections/Gallery";
+import Footer from "./components/sections/Footer";
 
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
@@ -30,7 +32,9 @@ function App() {
         <div id="content">
           <Hero />
           <About />
-          {/* <Gallery /> */}
+          <Dawid />
+          <Gallery />
+          <Footer />
         </div>
       </main>
     </>

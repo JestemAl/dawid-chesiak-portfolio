@@ -1,8 +1,65 @@
-import React from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import React, { useRef } from 'react'
+import { services } from '../../constants/index'
 
-const About = () => {
+gsap.registerPlugin(useGSAP, ScrollTrigger)
+
+    const About = () => {
+
+      const aboutSectionRef = useRef()
+
+      useGSAP(() => {
+        ScrollTrigger.create({
+          trigger: aboutSectionRef.current,
+          start: "top top",
+          pin: true,
+          pinSpacing: false,
+          scrub: true
+
+        })
+      }, {scope: aboutSectionRef})
+      
+
   return (
-    <div className='h-[300vh]'>About</div>
+    <section ref={aboutSectionRef} className='relative h-[150vh] z-20 bg-white flex flex-col justify-start items-center'>
+      <div className='max-w-[120rem] w-full flex flex-col justify-between p-6 md:p-12 xl:px-16 xl:py-12 h-[100svh]'>
+
+        <div className='flex flex-col gap-6'>
+          <div className='w-full flex justify-between md:justify-start md:space-x-4 font-light text-sm md:text-xl xl:text-3xl md:font-light'>
+            <div className='md:'>01</div>
+            <div className='' >To moja pasja</div>
+          </div>
+
+          <div className='flex flex-col max-w-3xl w-full'>
+            <h2 className='text-4xl md:text-6xl lg:text-8xl uppercase'>Zobacz świat z innej perspektywy</h2>
+          </div>
+        </div>
+
+        <dl className="w-fit flex flex-col mx-auto space-y-4 md:space-y-4">
+            {services.map(({ title, desc }, i) => (
+              <div
+                key={i}
+                className="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-t border-black/10 first:border-t-0"
+              >
+                <dt className="flex-none uppercase text-xl md:text-2xl xl:text-4xl font-medium leading-tight">
+                  {title}
+                </dt>
+                <dd className="flex-1 basis-[28rem] text-sm md:text-2xl xl:text-4xl md:basis-[36rem] min-w-[16rem] font-light ">
+                  {desc}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          
+        <div className='font-light text-right text-xs md:text-2xl uppercase'>
+            Jak chcesz coś więcej — nie bój się zapytać!
+        </div>
+
+      </div>
+    </section>
   )
 }
 
