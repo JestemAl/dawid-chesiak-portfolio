@@ -2,7 +2,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import React, { useRef } from 'react'
-import FitText from '../text/fitText'
+import FitText from '../text/FitText'
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, DrawSVGPlugin)
