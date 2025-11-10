@@ -29,11 +29,16 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
         <div className='flex flex-col gap-6'>
           <div className='w-full flex justify-between md:justify-start md:space-x-4 font-light text-sm md:text-xl xl:text-3xl md:font-light'>
             <div className='md:'>01</div>
-            <div className='' >To moja pasja</div>
+            <div className='uppercase' >To moja pasja</div>
           </div>
 
-          <div className='flex flex-col max-w-3xl w-full'>
-            <h2 className='text-4xl md:text-6xl lg:text-8xl uppercase'>Zobacz świat z innej perspektywy</h2>
+          <div className='uppercase flex flex-col max-w-3xl w-full'>
+            <h2 className='text-4xl md:text-6xl lg:text-8xl '>Zobacz świat z innej perspektywy</h2>
+            <div className='flex text-sm md:text-base lg:text-xl justify-between md:justify-end md:gap-4 bg-black text-white md:w-fit md:ml-auto px-2 md:py-1'>
+              <p className=''>nagrania dronem </p>
+              <p className=''>| </p>
+              <p className=''> fotografia</p>
+            </div>
           </div>
         </div>
 
