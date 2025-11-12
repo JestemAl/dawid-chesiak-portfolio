@@ -5,9 +5,9 @@ import React, { useRef } from 'react'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
-    const Dawid = () => {
+    const Dawid = ({ dawidSectionRef }) => {
 
-      const dawidSectionRef = useRef()
+
       
         useGSAP(() => {
       
@@ -26,32 +26,15 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
             }
           })
 
-            ScrollTrigger.create({
-                trigger: 'img',
-                start: 'center center',
-                pin: true,
-                endTrigger: dawidSectionRef.current,
-                end: 'bottom bottom',
-                scrub: true
-              })
-
-              ScrollTrigger.create({
-                trigger: '.title',
-                start: 'top top',
-                pin: true,
-                endTrigger: dawidSectionRef.current,
-                end: 'bottom bottom',
-                scrub: true
-              })
-
 
 
         }, { scope: dawidSectionRef })
 
 
   return (
-    <section ref={dawidSectionRef} className='relative h-[400svh] z-20 bg-neutral-950 text-white flex flex-col justify-start items-center w-full'>
-      <div className='relative max-w-[120rem] w-full flex flex-col justify-between test'>
+    <>
+    <section ref={dawidSectionRef} className='section relative h-[200svh] w-screen flex-none z-20 bg-lime-950 md:bg-neutral-950 text-white flex flex-col justify-start items-center'>
+      <div className='container relative max-w-[120rem] w-full flex flex-col justify-between test'>
 
         <div className='title flex flex-col gap-6 p-6 md:p-12 xl:px-16 xl:py-12'>
           <div className='w-full flex justify-between md:justify-start md:space-x-4 font-light text-sm md:text-xl xl:text-3xl md:font-light'>
@@ -67,23 +50,17 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
           </div>
         </div>
 
-        <div className='relative h-[100svh] flex flex-col items-center justify-center'>
+        <div className='absolute inset-0 h-[100svh] flex flex-col items-center justify-center'>
           <img 
             src='/photos/dawid.png'
             className='max-w-3xl h-[50svh]'
             />
-          {/* <div className='h-full w-full text-xl md:text-2xl absolute inset-0 flex flex-col justify-end items-center md:items-end'> */}
-            <div className='text absolute bottom-0'>Dzialam na terenie Bydgoszczy</div>
-            <div className='text absolute bottom-0 '>Do nagrywania używam drona DJI Mini 3 pro</div>
-            <div className='text absolute bottom-0 '>Dzialam na terenie Bydgoszczy</div>
-            <div className='text absolute bottom-0 '>Dzialam na terenie Bydgoszczy</div>
-          {/* </div> */}
         </div>
-
-
       </div>
-
     </section>
+
+
+    </>
   )
 }
 

@@ -34,15 +34,13 @@ body {
   overscroll-behavior: none;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 h2 {   font-family: "Big Shoulders", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal; }
-
-
 
 
 .container { max-width: 2500px; margin: 0 auto; }
