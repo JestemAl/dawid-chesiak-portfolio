@@ -84,8 +84,11 @@ const Hero = () => {
             />
         </header>
 
-        <div className='hero-text h-[100svh] absolute inset-0 z-20 flex flex-col font-light justify-end items-end md:text-right  md:font-extralight w-full'>
-            <div className='text-2xl md:text-5xl px-2 md:px-12 py-2 md:py-12  md:max-w-4xl text-white'> Nagrania i zdjęcia przy pomocy drona w <span className='font-semibold'>Bydgoszczy i okolicach</span> </div>
+        <div className='hero-text h-[100svh] absolute inset-0 z-20 flex flex-col font-light justify-end items-end  md:font-extralight w-full'>
+            <div className='flex flex-col text-2xl md:text-5xl px-4 md:px-12 py-4 md:py-12 md:max-w-4xl text-white tracking-wide'>
+              <div className='font-semibold text-sm md:text-5xl text-justify pb-2 md:pb-4 md:text-right'>Bydgoszcz i okolice</div>
+              <div className=''> Nagrania i zdjęcia przy pomocy drona </div>
+            </div>
         </div>
 
 
