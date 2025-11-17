@@ -10,6 +10,7 @@ import Gallery from "./components/sections/Gallery";
 import Footer from "./components/sections/Footer";
 import Dron from "./components/sections/AboutMe/Dron";
 import AboutMe from "./components/sections/AboutMe";
+import Nav from "./components/nav";
 
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
@@ -25,6 +26,21 @@ function App() {
       effects: true
     })
 
+     gsap.set(".title", { x: -100, autoAlpha: 0 });
+     gsap.utils.toArray(".title").forEach((title) => {
+        gsap.to(title, {
+          x: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: "power2.inOut",
+          scrollTrigger: {
+            trigger: title,
+            start: "top bottom",
+          },
+        });
+      })
+      
+
     smoother.effects('.gallery-content img', { speed: "auto" })
   })
 
@@ -32,6 +48,7 @@ function App() {
     <>
       <main id="wrapper">
         <div id="content">
+          {/* <Nav /> */}
           <Hero />
           <About />
           <AboutMe />

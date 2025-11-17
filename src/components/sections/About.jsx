@@ -26,7 +26,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
     <section ref={aboutSectionRef} className='h-[150vh] w-screen z-20 bg-stone-200 flex flex-col justify-start items-center'>
       <div className='relative max-w-[120rem] w-full flex flex-col justify-between p-6 md:p-12 xl:px-16 xl:py-10 h-[100svh]'>
 
-        <div className='flex flex-col gap-4'>
+        <div className='title flex flex-col gap-4'>
           <div className='w-full flex justify-between md:justify-start md:space-x-4 font-light text-sm md:text-xl xl:text-2xl md:font-light'>
             <div className='md:'>01</div>
             <div className='uppercase' >To moja pasja</div>
