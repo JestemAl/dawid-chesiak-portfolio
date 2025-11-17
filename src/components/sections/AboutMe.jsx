@@ -99,7 +99,7 @@ const AboutMe = () => {
     }, { scope: horizontalSectionRef })
 
   return (
-    <section ref={horizontalSectionRef} className='relative z-20 flex bg-neutral-950 flex-col md:flex-row w-full bg-neutral-950'>
+    <section ref={horizontalSectionRef} className='relative z-20 flexflex-col md:flex-row w-full bg-neutral-950'>
 
         <div className='title abouTitle hidden absolute inset-0 h-screen w-full z-50 text-white md:flex justify-center'>
             <div className='max-w-[120rem] w-full md:item p-6 md:p-12 xl:px-16 xl:py-10 h-[100svh]'>

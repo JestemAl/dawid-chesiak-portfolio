@@ -30,6 +30,11 @@ body {
   background-color: var(--color-neutral-950)
 }
 
+.backdrop-blur-3xl {
+  -webkit-backdrop-filter: blur(64px);
+  backdrop-filter: blur(64px);
+}
+
 
 /* Global basics */
 :root { color-scheme: light; }

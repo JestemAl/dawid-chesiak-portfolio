@@ -5,10 +5,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
-import Dawid from "./components/sections/AboutMe/Dawid";
 import Gallery from "./components/sections/Gallery";
 import Footer from "./components/sections/Footer";
-import Dron from "./components/sections/AboutMe/Dron";
 import AboutMe from "./components/sections/AboutMe";
 
 
