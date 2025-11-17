@@ -12,6 +12,8 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
       
         useGSAP(() => {
       
+          const img = gsap.utils.toArray("img")
+
           gsap.fromTo('img', {
             opacity: 0.0,
             // scale: 0
@@ -20,15 +22,13 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
             // scale: 1,
             ease: "power1.inOut",
             scrollTrigger: {
-                trigger: 'img',
+                trigger: img,
                 start: 'top center',
                 // end: '+=100%',
-                scrub: true
+                scrub: true,
+                markers: true
             }
           })
-
-
-
         }, { scope: dawidSectionRef })
 
 

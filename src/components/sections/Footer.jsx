@@ -24,7 +24,7 @@ useGSAP(() => {
 })
 
   return (
-    <section ref={footerRef} className='min-h-[60vh] bg-white flex flex-col justify-between '>
+    <section ref={footerRef} className='min-h-[60vh] md:min-h-[50vh] bg-white flex flex-col justify-between '>
 
       <div className=" text-center h-fit pt-2">
         <FitText
@@ -36,7 +36,7 @@ useGSAP(() => {
           />
       </div>
 
-        <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-0 text-2xl md:text-4xl text-neutral-700 w-full ">
+        <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-0 text-2xl md:text-4xl text-neutral-700 w-full md:my-12">
           <div className="flex flex-col px-2 md:items-center md:gap-0 font-light">
             <span className="text-neutral-900 font-semibold text-base md:text-base ">Telefon:</span>
             <a
