@@ -55,7 +55,7 @@ const Hero = () => {
             </div>
           </a>
 
-           <header className='absolute inset-0 top-0 z-10 w-full h-fit  mix bg-white flex flex-col items justify-end mix-blend-screen backdrop-blur-3xl transform-gpu will-change-transform" select-none rounded-none'>
+           <header className='absolute inset-0 top-0 z-10 w-full h-fit bg-white mix-blend-screen backdrop-blur-3xl transform-gpu will-change-transform select-none rounded-none'>
 
             <div className='mt-[2vh] mb-[4vh]  px-3 md:px-4 flex items-center gap-2 md:gap-4 text-3xl md:text-5xl opacity-0 '>
               <div className='w-12 h-12 md:h-20 md:w-20 mix-blend-normal' /> 
@@ -85,7 +85,7 @@ const Hero = () => {
         </header>
 
         <div className='hero-text h-[100svh] absolute inset-0 z-20 flex flex-col font-light justify-end items-end  md:font-extralight w-full'>
-            <div className='flex flex-col text-2xl md:text-5xl px-4 md:px-12 py-4 md:py-12 md:max-w-4xl text-white tracking-wide'>
+            <div className='flex flex-col text-2xl md:text-5xl p-4 md:p-6  md:max-w-4xl text-white tracking-wide'>
               <div className='font-semibold text-sm md:text-5xl text-justify pb-2 md:pb-4 md:text-right'>Bydgoszcz i okolice</div>
               <div className=''> Nagrania i zdjęcia przy pomocy drona </div>
             </div>
