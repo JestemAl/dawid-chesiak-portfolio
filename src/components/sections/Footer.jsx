@@ -36,8 +36,8 @@ useGSAP(() => {
           />
       </div>
 
-        <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-0 text-2xl md:text-4xl text-neutral-700 w-full md:my-12">
-          <div className="flex flex-col px-2 md:items-center md:gap-0 font-light">
+        <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-0 text-xl md:text-3xl text-neutral-700 w-full md:my-12">
+          <div className="flex flex-col px-2 md:items-center md:gap-0 font-light md:font-extralight">
             <span className="text-neutral-900 font-semibold text-base md:text-base ">Telefon:</span>
             <a
               href="tel:+48123456789"
@@ -46,14 +46,14 @@ useGSAP(() => {
             </a>
           </div>
 
-          <div className="flex flex-col  px-2 md:items-center md:gap-0 font-light md:mx-8">
+          <div className="flex flex-col  px-2 md:items-center md:gap-0 font-light md:font-extralight md:mx-8">
             <span className="text-neutral-900 font-semibold text-base md:text-base">E-mail:</span>
             <a href="mailto:kontakt@dawiddrone.pl">
               kontakt@dawiddrone.pl
             </a>
           </div>
 
-          <div className="flex flex-col  px-2 md:items-center md:gap-0 font-light">
+          <div className="flex flex-col  px-2 md:items-center md:gap-0 font-light md:font-extralight">
             <span className="text-neutral-900 font-semibold text-base md:text-base">Instagram:</span>
             <a
               href="https://instagram.com/air_d.a.v.e"
