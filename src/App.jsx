@@ -23,6 +23,8 @@ function App() {
       effects: true
     })
 
+    let mm = gsap.matchMedia()
+    mm.add("(min-width: 779px)", () =>{
      gsap.utils.toArray(".title").forEach((title) => {
         gsap.from(title, {
           autoAlpha: 0,
@@ -34,6 +36,9 @@ function App() {
           },
         });
       })
+    })
+
+
       
 
     smoother.effects('.gallery-content img', { speed: "auto" })
