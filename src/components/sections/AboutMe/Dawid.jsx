@@ -26,7 +26,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
                 start: 'top center',
                 // end: '+=100%',
                 scrub: true,
-                markers: true
+                // markers: true
             }
           })
         }, { scope: dawidSectionRef })
