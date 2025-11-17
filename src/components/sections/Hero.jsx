@@ -113,8 +113,8 @@ const Hero = () => {
         </header>
 
         <div className='hero-text h-[100svh] absolute inset-0 z-20 flex flex-col font-light justify-end items-end  md:font-extralight w-full'>
-            <div className='flex flex-col text-2xl md:text-3xl xl:text-5xl p-4 md:p-6  md:max-w-4xl text-white tracking-wide'>
-              <div className='font-semibold text-sm md:text-2xl xl:text-5xl text-justify pb-2 xl:pb-4 md:text-right'>Bydgoszcz i okolice</div>
+            <div className='flex flex-col text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl p-4 md:p-6  md:max-w-4xl text-white tracking-wide'>
+              <div className='font-semibold text-sm md:text-2xl xl:text-3xl 2xl:text-5xl text-justify pb-2 xl:pb-4 md:text-right'>Bydgoszcz i okolice</div>
               <div className=''> Nagrania i zdjęcia przy pomocy drona </div>
             </div>
         </div>
