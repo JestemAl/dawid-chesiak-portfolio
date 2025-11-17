@@ -23,18 +23,18 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
       
 
   return (
-    <section ref={aboutSectionRef} className='relative h-[150vh] z-20 bg-white flex flex-col justify-start items-center'>
-      <div className='max-w-[120rem] w-full flex flex-col justify-between p-6 md:p-12 xl:px-16 xl:py-12 h-[100svh]'>
+    <section ref={aboutSectionRef} className='h-[150vh] w-screen z-20 bg-stone-200 flex flex-col justify-start items-center'>
+      <div className='relative max-w-[120rem] w-full flex flex-col justify-between p-6 md:p-12 xl:px-16 xl:py-10 h-[100svh]'>
 
-        <div className='flex flex-col gap-6'>
-          <div className='w-full flex justify-between md:justify-start md:space-x-4 font-light text-sm md:text-xl xl:text-3xl md:font-light'>
+        <div className='flex flex-col gap-4'>
+          <div className='w-full flex justify-between md:justify-start md:space-x-4 font-light text-sm md:text-xl xl:text-2xl md:font-light'>
             <div className='md:'>01</div>
             <div className='uppercase' >To moja pasja</div>
           </div>
 
-          <div className='uppercase flex flex-col max-w-3xl w-full'>
-            <h2 className='text-4xl md:text-6xl lg:text-8xl '>Zobacz świat z innej perspektywy</h2>
-            <div className='flex text-sm md:text-base lg:text-xl justify-between md:justify-end md:gap-4 bg-black text-white md:w-fit md:ml-auto px-2 md:py-1'>
+          <div className='uppercase flex flex-col max-w-xl w-full'>
+            <h2 className='text-4xl md:text-6xl lg:text-6xl '>Zobacz świat z innej perspektywy</h2>
+            <div className='flex text-sm md:text-base lg:text-lg justify-between md:justify-end md:gap-3 bg-black text-white md:w-fit md:ml-auto px-2 md:py-1'>
               <p className=''>nagrania dronem </p>
               <p className=''>| </p>
               <p className=''> fotografia</p>
@@ -42,7 +42,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
           </div>
         </div>
 
-        <dl className="w-fit flex flex-col mx-auto space-y-4 md:space-y-4">
+        <dl className="md:absolute md:inset-0 md:w-fit md:h-[screen] md:pt-[10vh] md:justify-center md:items-start w-fit flex flex-col mx-auto space-y-4 md:space-y-4">
             {services.map(({ title, desc }, i) => (
               <div
                 key={i}

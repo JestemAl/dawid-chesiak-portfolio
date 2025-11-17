@@ -15,19 +15,21 @@ const Hero = () => {
         ScrollTrigger.create({
             trigger: 'video',
             pin: true,
-            end: '+=200%',
+            end: '+=150%',
             pinSpacing: false
         })
 
     }, { scope: sectionRef })
 
   return (
-        <section ref={sectionRef} className="relative h-[200svh] flex flex-col justify-center  bg-gradient-to-b from-[#c8e5fc] via-[#ffffff] via-15% to-[#ffffff] ">
+        <section ref={sectionRef} className="relative h-[150svh] flex flex-col justify-center  bg-gradient-to-b from-[#c8e5fc] via-[#ffffff] via-15% to-[#ffffff] ">
 
+         {/* <div className='imperial-script-regular absolute top-0 left-1/2 -translate-x-1/2 xl:text-[20rem] xl:-mt-20 text-red-600 z-30'>
+            Dawid
+          </div> */}
 
 
         <header className='absolute inset-0 top-0 z-10 w-full h-fit pt-[10svh] bg-white flex flex-col items justify-end mix-blend-screen backdrop-blur-3xl select-none rounded-none'>
-
 
             <FitText
               text="Drone Operator"

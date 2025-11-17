@@ -21,6 +21,35 @@ const services = [
   },
 ];
 
+const dawid = [
+  { desc: " od 5 lat" },
+  { desc: "Bydgoszcz i okolice" },
+  { desc: "Robie to dla hobby" },
+  { desc: "Używam DJI Mini 3" },
+];
+
+const dronVideo = [
+  {
+    title: "4K (3840×2160)",
+    desc: "24/25/30 fps",
+  },
+  {
+    title: "2.7K (2688×1512)",
+    desc: "24/25/30/48/50/60 fps",
+  },
+  {
+    title: "FHD (1920×1080)",
+    desc: "24/25/30/48/50/60 fps",
+  },
+  {
+    title: "HDR",
+    desc: "przy 24/25/30 fps",
+  },
+
+];
+
 export {
-  services
+  services,
+  dawid,
+  dronVideo
 }

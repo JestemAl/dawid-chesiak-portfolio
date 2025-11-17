@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Dawid from './AboutMe/Dawid'
 import Dron from './AboutMe/Dron'
 import { useGSAP } from '@gsap/react'
@@ -14,6 +14,7 @@ const AboutMe = () => {
     const dawidSectionRef = useRef()
     const dronSectionRef = useRef()
 
+    const [progressState, setProgressState] = useState(false)
     
     useGSAP( () => {
 
@@ -22,9 +23,13 @@ const AboutMe = () => {
 
     let mm = gsap.matchMedia()
 
+    ScrollTrigger.create({
+        trigger: dronSectionRef.current,
+        pin: true,
+        scrub: true
+    })
+        
 
-
-    
     mm.add("(max-width: 778px)", () => {
         ScrollTrigger.create({
             trigger: dawidSectionRef.current,
@@ -32,14 +37,9 @@ const AboutMe = () => {
             scrub: true
         })
 
-        ScrollTrigger.create({
-            trigger: dronSectionRef.current,
-            pin: true,
-            scrub: true
-        })
     })
-        
 
+  
     mm.add("(min-width: 779px)", () => {
 
         ScrollTrigger.create({
@@ -50,12 +50,11 @@ const AboutMe = () => {
         })
 
         ScrollTrigger.create({
-            trigger: dronSectionRef.current,
+            trigger: '.abouTitle',
             pin: true,
-            // end: 'bottom bottom',
             scrub: true,
-            // markers: true
         })
+
 
         const horizontalTween = gsap.to(sections, {
             xPercent: -100 ,
@@ -68,17 +67,13 @@ const AboutMe = () => {
                 anticipatePin: 1,
                 scrub: true,
                 end: () => '+=' + horizontalSectionRef.current.offsetWidth,
-                // markers: true,
-                // onUpdate: (self) => { console.log('progress', self.progress) }
             }
         })
-
-        // gsap.set('.svg-loader', { opacity: 0 })
-        // gsap.to('.svg-loader', { opacity: 1, duration: 1, scrollTrigger: { trigger: dawidSectionRef.current, start: 'top center', scrub: true,  }})
+        
 
         ScrollTrigger.create({
             trigger: '.svg-loader',
-            start: 'top 90%',
+            start: 'top 85%',
             endTrigger: horizontalSectionRef.current,
             end: 'bottom bottom',
             pin: true,
@@ -92,55 +87,82 @@ const AboutMe = () => {
 
         // rysuj linię wg progresu horyzontalnego
         horizontalTween.eventCallback("onUpdate", () => {
-        const p = horizontalTween.progress();           // 0..1
+        const p = horizontalTween.progress();      
+        if(p > 0.5) setProgressState(true)  
+            else setProgressState(false) 
         gsap.set("#linePath", { drawSVG: `${p * 100}% 0%` });
         });
-
     })
+
+    
 
     }, { scope: horizontalSectionRef })
 
   return (
     <section ref={horizontalSectionRef} className='relative z-20 flex flex-col md:flex-row w-full bg-neutral-950'>
+
+        <div className='abouTitle hidden absolute inset-0 h-screen w-full z-50 text-white md:flex justify-center'>
+            <div className='max-w-[120rem] w-full md:item p-6 md:p-12 xl:px-16 xl:py-10 h-[100svh]'>
+                <div className='title flex flex-col gap-4 '>
+                <div className='w-full flex justify-between md:justify-start md:space-x-4 font-light text-sm md:text-xl xl:text-2xl md:font-light'>
+                    <div className='md:'>02</div>
+                    <div className='uppercase' >Trochę o mnie</div>
+                </div>
+
+                <div className='flex flex-col max-w-3xl uppercase w-full md:w-fit'>
+                    <h2 className='text-4xl md:text-6xl lg:text-7xl '>Jestem Dawid</h2>
+                    <div className='text-sm md:text-base lg:text-xl w-full md:justify-end'>
+                    <p className='text-justify after:inline-block after:w-full md:text-right'>Zwyky chlopak z zajawką</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
         <Dawid dawidSectionRef={dawidSectionRef} />
         <Dron dronSectionRef={ dronSectionRef} />
 
-        <div className='svg-loader absolute w-full top-[45%] z-30'>
-            <svg
-                id="path"
-                width="70vw"
-                height="2"
-                viewBox="0 0 100 2"
-                preserveAspectRatio="none"
-                className="z-40 absolute left-1/2 -translate-x-1/2"
-                xmlns="http://www.w3.org/2000/svg"
-                >
-            <path
-                id="linePath"
-                d="M0 1 H100"
-                fill="none"
-                stroke="#fff"
-                strokeWidth="2"
-                strokeLinecap="round"
-                />
-            </svg>
+        <div className='svg-loader hidden md:flex absolute w-full top-[40%] z-30 items-center justify-center gap-4'>
+            {/* <div className=''> */}
+                <div className='text-white uppercase'> o mnie</div>
+                <div className='w-[70vw] '>
+                <svg
+                    id="path"
+                    height="2"
+                    viewBox="0 0 100 2"
+                    preserveAspectRatio="none"
+                    className="z-40  w-full"
+                    xmlns="http://www.w3.org/2000/svg"
+                    >
+                <path
+                    id="linePath"
+                    d="M0 1 H100"
+                    fill="none"
+                    stroke="#fff"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    />
+                </svg>
 
-            <svg
-                width="70vw"
-                height="2"
-                viewBox="0 0 100 2"
-                preserveAspectRatio="none"
-                className="z-30 absolute left-1/2 -translate-x-1/2"
-                xmlns="http://www.w3.org/2000/svg"
-                >
-            <path
-                d="M0 1 H100"
-                fill="none"
-                stroke="#333"
-                strokeWidth="2"
-                strokeLinecap="round"
-                />
-            </svg>
+                <svg
+
+                    height="2"
+                    viewBox="0 0 100 2"
+                    preserveAspectRatio="none"
+                    className="z-30  w-full"
+                    xmlns="http://www.w3.org/2000/svg"
+                    >
+                <path
+                    d="M0 1 H100"
+                    fill="none"
+                    stroke="#333"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    />
+                </svg>
+            </div>
+            <div className={`uppercase ${progressState ? 'text-white' : 'text-neutral-500'}`}> Dron</div>
+            {/* </div> */}
         </div>
 
     </section>

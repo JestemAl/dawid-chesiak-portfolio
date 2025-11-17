@@ -16,6 +16,13 @@
   font-style: normal;
 }
 
+.imperial-script-regular {
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-size: 16px;          
@@ -43,14 +50,19 @@ h2 {   font-family: "Big Shoulders", sans-serif;
   font-style: normal; }
 
 
-.container { max-width: 2500px; margin: 0 auto; }
+.container {
+  max-width: 2500px;
+  margin: 0 auto;
+}
+
 .spacer { height: 100vh; }
 
+/* GRID bazowy – jak u Ciebie */
 .image-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-column-gap: 1rem;
-  grid-row-gap: 33.3vh;
+  grid-row-gap: 22vh;               /* trochę mniejszy gap niż 33.3vh */
   width: 100vw;
   margin: 0 auto;
 }
@@ -59,47 +71,103 @@ h2 {   font-family: "Big Shoulders", sans-serif;
 .image-grid .image_cont {
   position: relative;
   overflow: hidden;
-  height: 80vh;
-  max-height: 500px; 
+  height: 55vh;                     /* bazowa wysokość pod panoramy */
+  max-height: 420px;                /* na mniejszych ekranach nie przesadzamy */
 }
 
+/* SAMO ZDJĘCIE – wyższe niż ramka, żeby można było robić parallax */
 .image-grid img {
   position: absolute;
   width: 100%;
-  height: 160%;
+  height: 135%;
   object-fit: cover;
   bottom: 0;
   will-change: transform;
 }
 
-/* Rozkład i wysokości 1:1 */
+/* ROZKŁAD + wysokości (1 zdjęcie na wiersz) */
+
+/* 1 – hero na całą szerokość */
 .image-grid .image_cont:nth-child(1) {
-  grid-column: 1 / -1; grid-row: 1; height: 95vh;
-}
-.image-grid .image_cont:nth-child(2) {
-  grid-column: 2 / span 8; grid-row: 2; height: 60vh;
-}
-.image-grid .image_cont:nth-child(3) {
-  grid-column: 4 / span 8; grid-row: 3; height: 60vh;
-}
-.image-grid .image_cont:nth-child(3) img {
-  object-position: right;
-}
-.image-grid .image_cont:nth-child(4) {
-  grid-column: 1 / -1; grid-row: 4; height: 60vh;
-}
-.image-grid .image_cont:nth-child(5) {
-  grid-column: 4 / span 8; grid-row: 5; height: 80vh;
-}
-.image-grid .image_cont:nth-child(6) {
-  grid-column: 2 / span 8; grid-row: 6; height: 80vh;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  height: 70vh;
 }
 
-/* Desktop – zdejmujemy max-height i zmieniamy kolumny jak w demie */
+/* 2 – trochę węższe, przesunięte w lewo */
+.image-grid .image_cont:nth-child(2) {
+  grid-column: 2 / span 9;
+  grid-row: 2;
+  height: 60vh;
+}
+
+/* 3 – węższe, przesunięte w prawo */
+.image-grid .image_cont:nth-child(3) {
+  grid-column: 4 / span 8;
+  grid-row: 3;
+  height: 58vh;
+}
+.image-grid .image_cont:nth-child(3) img {
+  object-position: 70% center;      /* trochę w prawo – ładnie kadruje panoramy */
+}
+
+/* 4 – znów szerzej prawie na full */
+.image-grid .image_cont:nth-child(4) {
+  grid-column: 1 / -1;
+  grid-row: 4;
+  height: 60vh;
+}
+
+/* 5 – środkowo, trochę wyższe */
+.image-grid .image_cont:nth-child(5) {
+  grid-column: 3 / span 8;
+  grid-row: 5;
+  height: 65vh;
+}
+
+/* 6 – węższe, lekko z lewej */
+.image-grid .image_cont:nth-child(6) {
+  grid-column: 2 / span 8;
+  grid-row: 6;
+  height: 58vh;
+}
+.image-grid .image_cont:nth-child(6) img {
+  object-position: 30% center;      /* lekko w lewo */
+}
+
+/* 7 – bliżej prawej */
+.image-grid .image_cont:nth-child(7) {
+  grid-column: 4 / span 7;
+  grid-row: 7;
+  height: 55vh;
+}
+
+/* 8 – prawie full, delikatny margines */
+.image-grid .image_cont:nth-child(8) {
+  grid-column: 2 / span 10;
+  grid-row: 8;
+  height: 62vh;
+}
+
+/* 9 – na koniec znów hero-ish */
+.image-grid .image_cont:nth-child(9) {
+  grid-column: 1 / -1;
+  grid-row: 9;
+  height: 68vh;
+}
+
+/* DESKTOP – zdejmujemy max-height, minimalnie zwężamy kilka ujęć */
 @media (min-width: 1000px) {
-  .image-grid .image_cont { max-height: unset; }
-  .image-grid .image_cont:nth-child(2) { grid-column: 2 / span 4; }
-  .image-grid .image_cont:nth-child(3) { grid-column: 8 / span 4; }
-  .image-grid .image_cont:nth-child(5) { grid-column: 8 / span 4; }
-  .image-grid .image_cont:nth-child(6) { grid-column: 2 / span 4; }
+
+  .image-grid .image_cont {
+    max-height: unset;              /* foty mogą być wysokie */
+  }
+
+  /* lekko ciaśniejsze kolumny na szerokich ekranach */
+  .image-grid .image_cont:nth-child(2) { grid-column: 2 / span 8; }
+  .image-grid .image_cont:nth-child(3) { grid-column: 5 / span 6; }
+  .image-grid .image_cont:nth-child(5) { grid-column: 4 / span 7; }
+  .image-grid .image_cont:nth-child(6) { grid-column: 3 / span 7; }
+  .image-grid .image_cont:nth-child(7) { grid-column: 5 / span 6; }
+  .image-grid .image_cont:nth-child(8) { grid-column: 2 / span 9; }
 }
