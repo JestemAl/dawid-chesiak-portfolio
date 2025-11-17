@@ -34,7 +34,7 @@ const Dron = ({dronSectionRef}) => {
               </div>
             </div>
             
-            <div className='hidden md:block md:self-start md:row-start-1 md:col-span-4 text-6xl z-10 font-light mix-blend-difference'>
+            <div className='hidden md:block md:self-start md:row-start-1 md:col-span-4 md:text-5xl 2xl:text-6xl z-10 font-light mix-blend-difference'>
                 Do nagrywek używam drona <span className='font-semibold '>DJJ Mini3</span>
             </div>
 

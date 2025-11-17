@@ -48,10 +48,10 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
                 key={i}
                 className="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-t border-black/10 first:border-t-0"
               >
-                <dt className="flex-none uppercase text-xl md:text-2xl xl:text-4xl font-medium leading-tight">
+                <dt className="flex-none uppercase text-xl md:text-2xl xl:text-3xl 2xl:text-4xl font-medium leading-tight">
                   {title}
                 </dt>
-                <dd className="flex-1 basis-[28rem] text-sm md:text-2xl xl:text-4xl md:basis-[36rem] min-w-[16rem] font-light ">
+                <dd className="flex-1 basis-[28rem] text-sm md:text-2xl xl:text-3xl 2xl:text-4xl md:basis-[36rem] min-w-[16rem] font-light ">
                   {desc}
                 </dd>
               </div>
