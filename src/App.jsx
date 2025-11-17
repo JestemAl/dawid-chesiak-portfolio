@@ -10,7 +10,6 @@ import Gallery from "./components/sections/Gallery";
 import Footer from "./components/sections/Footer";
 import Dron from "./components/sections/AboutMe/Dron";
 import AboutMe from "./components/sections/AboutMe";
-import Nav from "./components/nav";
 
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
