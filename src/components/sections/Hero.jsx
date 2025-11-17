@@ -1,7 +1,7 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import FitText from '../text/FitText'
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin'
 
@@ -9,6 +9,36 @@ gsap.registerPlugin(useGSAP, ScrollTrigger, DrawSVGPlugin)
 
 const Hero = () => {
     const sectionRef = useRef() 
+    const videoRef = useRef() 
+
+    useEffect(() => {
+      const video = videoRef.current
+      if (!video) return
+
+      const START_AT = 2 // sekundy
+
+      const handleLoaded = () => {
+        try {
+          video.currentTime = START_AT
+        } catch (e) {
+          // niektóre przeglądarki marudzą przy seeku przed bufforem, ignorujemy
+        }
+        const p = video.play()
+        if (p && p.catch) {
+          p.catch(() => {
+            // jeśli Safari na Macu zablokuje autoplay, trudno – ale start time i tak jest ustawiony
+          })
+        }
+      }
+
+      if (video.readyState >= 1) {
+        // metadata już są
+        handleLoaded()
+      } else {
+        video.addEventListener('loadedmetadata', handleLoaded)
+        return () => video.removeEventListener('loadedmetadata', handleLoaded)
+      }
+    }, [])
 
     useGSAP(() => {
 
@@ -34,8 +64,6 @@ const Hero = () => {
           delay: 1
         })
 
-
-
         gsap.fromTo('header', { y: -2000 }, { y:0, duration: 1, ease: 'expo.out' })
 
     }, { scope: sectionRef })
@@ -49,8 +77,8 @@ const Hero = () => {
           </div> */}
 
           <a href='https://www.instagram.com/air_d.a.v.e/' target="_blank" >
-            <div className='ig-icon absolute top-0 mt-[2vh] z-30 mb-[4vh] px-3 md:px-4 flex items-center gap-2 md:gap-4 text-3xl md:text-5xl '>
-              <img src='svg/instagram.svg' className=' w-12 md:w-20 mix-blend-normal' /> 
+            <div className='ig-icon absolute top-0 mt-[2vh] z-30 mb-[4vh] px-3 md:px-4 flex items-center gap-2 md:gap-4 text-3xl xl:text-5xl '>
+              <img src='svg/instagram.svg' className=' w-12 md:w-16 xl:w-20 mix-blend-normal' /> 
               <div className='text-neutral-700 font-light'>air_d.a.v.e</div>
             </div>
           </a>
@@ -85,8 +113,8 @@ const Hero = () => {
         </header>
 
         <div className='hero-text h-[100svh] absolute inset-0 z-20 flex flex-col font-light justify-end items-end  md:font-extralight w-full'>
-            <div className='flex flex-col text-2xl md:text-5xl p-4 md:p-6  md:max-w-4xl text-white tracking-wide'>
-              <div className='font-semibold text-sm md:text-5xl text-justify pb-2 md:pb-4 md:text-right'>Bydgoszcz i okolice</div>
+            <div className='flex flex-col text-2xl md:text-3xl xl:text-5xl p-4 md:p-6  md:max-w-4xl text-white tracking-wide'>
+              <div className='font-semibold text-sm md:text-2xl xl:text-5xl text-justify pb-2 xl:pb-4 md:text-right'>Bydgoszcz i okolice</div>
               <div className=''> Nagrania i zdjęcia przy pomocy drona </div>
             </div>
         </div>
@@ -94,6 +122,7 @@ const Hero = () => {
 
           <div className='absolute top-0 w-full h-[100svh]'> 
             <video 
+                ref={ videoRef }
                 autoPlay 
                 loop
                 muted 
