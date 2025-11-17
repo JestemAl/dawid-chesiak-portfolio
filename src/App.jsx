@@ -28,7 +28,6 @@ function App() {
      gsap.set(".title", { x: -100, autoAlpha: 0 });
      gsap.utils.toArray(".title").forEach((title) => {
         gsap.to(title, {
-          x: 0,
           autoAlpha: 1,
           duration: 1,
           ease: "power2.inOut",
