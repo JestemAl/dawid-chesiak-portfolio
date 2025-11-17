@@ -30,7 +30,7 @@ body {
   background-color: var(--color-neutral-950)
 }
 
-.backdrop-blur-3xl {
+.text-blur {
   -webkit-backdrop-filter: blur(64px);
   backdrop-filter: blur(64px);
 }
