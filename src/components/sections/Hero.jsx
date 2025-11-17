@@ -51,7 +51,7 @@ const Hero = () => {
           <a href='https://www.instagram.com/air_d.a.v.e/' target="_blank" >
             <div className='ig-icon absolute top-0 mt-[2vh] z-30 mb-[4vh] px-3 md:px-4 flex items-center gap-2 md:gap-4 text-3xl md:text-5xl '>
               <img src='svg/instagram.svg' className=' w-12 md:w-20 mix-blend-normal' /> 
-              <div className='text-neutral-900'>air_d.a.v.e</div>
+              <div className='text-neutral-700 font-light'>air_d.a.v.e</div>
             </div>
           </a>
 
@@ -104,7 +104,7 @@ const Hero = () => {
                 > 
                   <source src="videos/rolka.webm" type="video/webm" />
                   <source src="videos/rolka.mp4" type="video/mp4" />
-                  <source src="videos/rolka.mov" type="video/mov" />
+                  {/* <source src="videos/rolka.mov" type="video/mov" /> */}
               </video>
           </div> 
         </section>
