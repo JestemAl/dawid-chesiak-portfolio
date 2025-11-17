@@ -50,7 +50,7 @@ const Hero = () => {
 
             <div className='ig-icon absolute top-0 mt-[2vh] z-30 mb-[4vh] px-3 md:px-4 flex items-center gap-2 md:gap-4 text-3xl md:text-5xl '>
               <img src='svg/instagram.svg' className=' w-12 md:w-20 mix-blend-normal' /> 
-              <div className=''>air_d.a.v.e</div>
+              <div className='text-neutral-900'>air_d.a.v.e</div>
             </div>
 
            <header className='absolute inset-0 top-0 z-10 w-full h-fit  mix bg-white flex flex-col items justify-end mix-blend-screen backdrop-blur-3xl select-none rounded-none'>
