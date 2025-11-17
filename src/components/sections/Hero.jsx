@@ -83,7 +83,7 @@ const Hero = () => {
             </div>
           </a>
 
-           <header className='absolute inset-0 top-0 z-10 w-full h-fit pr-1 text-blur  bg-white mix-blend-screen backdrop-blur-3xl transform-gpu will-change-transform select-none rounded-none'>
+           <header className='absolute inset-0 top-0 z-10 w-full h-fit pr-1 bg-white mix-blend-screen backdrop-blur-3xl transform-gpu will-change-transform select-none rounded-none'>
 
             <div className='mt-[2vh] mb-[4vh] flex items-center gap-2 md:gap-4 text-3xl md:text-5xl opacity-0 '>
               <div className='w-12 h-12 md:h-20 md:w-20 mix-blend-normal' /> 
