@@ -25,10 +25,9 @@ function App() {
       effects: true
     })
 
-     gsap.set(".title", { x: -100, autoAlpha: 0 });
      gsap.utils.toArray(".title").forEach((title) => {
-        gsap.to(title, {
-          autoAlpha: 1,
+        gsap.from(title, {
+          autoAlpha: 0,
           duration: 1,
           ease: "power2.inOut",
           scrollTrigger: {
