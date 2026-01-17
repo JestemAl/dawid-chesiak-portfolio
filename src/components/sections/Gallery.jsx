@@ -20,7 +20,6 @@ const Gallery = () => {
       
       <section className="image-grid container">
         <div className="image_cont" loading="lazy"><img src="/photos/fota1.webp" alt="" /></div>
-        <div className="image_cont" loading="lazy"><img src="/photos/fota7.webp" alt="" /></div>
         <div className="image_cont" loading="lazy"><img src="/photos/fota3.webp" alt="" /></div>
         <div className="image_cont" loading="lazy"><img src="/photos/fota4.webp" alt="" /></div>
         <div className="image_cont" loading="lazy"><img src="/photos/fota5.webp" alt="" /></div>

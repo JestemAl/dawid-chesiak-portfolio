@@ -8,8 +8,8 @@ import DrawSVGPlugin from 'gsap/DrawSVGPlugin'
 gsap.registerPlugin(useGSAP, ScrollTrigger, DrawSVGPlugin)
 
 const Hero = () => {
-  const POSTER = "/images/rolka-poster.webp";
-  const BLUR  = "/images/rolka-poster-blur.webp";
+  const POSTER = "/photos/rolka-poster.webp";
+  const BLUR  = "/photos/rolka-poster-blur.webp";
 
     const sectionRef = useRef() 
     const videoRef = useRef() 
