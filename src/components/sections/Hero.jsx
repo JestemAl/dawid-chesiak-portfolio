@@ -90,7 +90,7 @@ const Hero = () => {
           <img
             src="/podpis/podpis-czerwony.webp"
             alt="Podpis"
-            className="absolute md:left-0 top-14 max-md:left-1/2 max-md:-translate-x-1/2 md:top-0 z-30 w-[260px] md:w-[280px]  pointer-events-none mix-blend-normal"
+            className="absolute md:left-0 top-14 max-md:left-1/2 max-md:-translate-x-1/4 md:top-0 z-30 w-[260px] md:w-[280px]  pointer-events-none mix-blend-normal"
           />
 
            <header className='absolute inset-0 top-0 z-10 w-full h-fit pr-1 bg-white mix-blend-screen backdrop-blur-3xl transform-gpu will-change-transform select-none rounded-none'>
@@ -147,7 +147,7 @@ const Hero = () => {
                 className='object-cover w-full h-full ' 
                 playsInline
                 preload="metadata"
-                poster='POSTER'
+                poster={POSTER}
                 onCanPlay={() => setIsReady(true)} 
                 // poster="/images/rolka-poster.jpg"
                 > 

@@ -37,24 +37,28 @@ export default function FitText({
   };
 
   const measureRef = useRef(null);
-  const [fontSize, setFontSize] = useState(min);
+const [fontSize, setFontSize] = useState(min);
+const [ready, setReady] = useState(false);
 
-  const recalc = useCallback(() => {
-    const container = localContainerRef.current;
-    const measurer = measureRef.current;
-    if (!container || !measurer) return;
+const recalc = useCallback(() => {
+  const container = localContainerRef.current;
+  const measurer = measureRef.current;
+  if (!container || !measurer) return;
 
-    const available = Math.max(0, container.clientWidth - horizontalPadding * 2);
-    if (available === 0) return;
+  const available = Math.max(0, container.clientWidth - horizontalPadding * 2);
+  if (available === 0) return;
 
-    measurer.style.fontSize = "100px";
-    const measured = measurer.offsetWidth;
-    if (measured === 0) return;
+  measurer.style.fontSize = "100px";
+  const measured = measurer.offsetWidth;
+  if (measured === 0) return;
 
-    const target = (available * 100) / measured;
-    const clamped = Math.max(min, Math.min(max, target));
-    setFontSize(clamped);
-  }, [horizontalPadding, min, max]);
+  const target = (available * 100) / measured;
+  const clamped = Math.max(min, Math.min(max, target));
+
+  setFontSize(clamped);
+  setReady(true); // <- dopiero teraz pokazujemy
+}, [horizontalPadding, min, max]);
+
 
   useResizeObserver(localContainerRef, recalc);
 
@@ -68,9 +72,17 @@ export default function FitText({
   return (
     <div ref={setContainerRef} className={className}>
       {/* Visible text */}
-      <span className={textClassName} style={{ fontSize: `${fontSize}px` }}>
-        {text}
-      </span>
+<span
+  className={textClassName}
+  style={{
+    fontSize: `${fontSize}px`,
+    opacity: ready ? 1 : 0,
+    transition: ready ? "opacity 120ms ease" : "none",
+  }}
+>
+  {text}
+</span>
+
 
       {/* Invisible measurer – same styles as visible text so metrics match */}
       <span
