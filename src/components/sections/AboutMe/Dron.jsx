@@ -25,7 +25,7 @@ const Dron = ({dronSectionRef}) => {
                   </div>
 
                   <div className='flex flex-col max-w-3xl uppercase w-full md:w-fit'>
-                      <h2 className='text-4xl md:text-6xl lg:text-7xl '>DJJ Mini 3</h2>
+                      <h2 className='text-4xl md:text-6xl lg:text-7xl '>DJI Mini 3 Pro</h2>
                       <div className='text-sm md:text-base lg:text-xl w-full md:justify-end'>
                       <p className='text-justify after:inline-block after:w-full md:text-right'>Dron z 4k</p>
                     </div>
@@ -35,13 +35,15 @@ const Dron = ({dronSectionRef}) => {
             </div>
             
             <div className='hidden md:block md:self-start md:row-start-1 md:col-span-4 md:text-5xl 2xl:text-6xl z-10 font-light mix-blend-difference'>
-                Do nagrywek używam drona <span className='font-semibold '>DJJ Mini3</span>
+                Do nagrywek używam drona <span className='font-semibold '> DJI Mini 3 Pro</span>
             </div>
-
+          <a target='blank' href='https://dji-polska.pl/drony/dji-mini-3-pro/#specification'
+            className='md:col-start-3 md:col-span-4 h-[50vh] w-full object-contain mb-2 bg-white'>
             <img 
               src='/images/djj-mini.png'
-              className='md:col-start-3 md:col-span-4 h-[50vh] w-full object-contain mb-2 bg-white'
-            />
+              className=''
+              />
+            </a>
 
             <div className='md:col-start-7 md:col-span-2 md:self-end text-justify md:text-left z-20 '>
               <dl className="md:text-2xl space-y-4 grid grid-cols-2 md:grid-cols-1 my-auto">

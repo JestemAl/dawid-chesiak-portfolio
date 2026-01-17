@@ -1,15 +1,19 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import FitText from '../text/FitText'
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, DrawSVGPlugin)
 
 const Hero = () => {
+  const POSTER = "/images/rolka-poster.webp";
+  const BLUR  = "/images/rolka-poster-blur.webp";
+
     const sectionRef = useRef() 
     const videoRef = useRef() 
+    const [isReady, setIsReady] = useState()
 
     useEffect(() => {
       const video = videoRef.current
@@ -77,17 +81,24 @@ const Hero = () => {
           </div> */}
 
           <a href='https://www.instagram.com/air_d.a.v.e/' target="_blank" >
-            <div className='ig-icon absolute top-0 mt-[2vh] z-30 mb-[4vh] px-3 md:px-4 flex items-center gap-2 md:gap-4 text-3xl xl:text-5xl '>
+            <div className='ig-icon absolute top-0 md:right-0 mt-[2vh] z-30 mb-[4vh] px-3 md:px-4 flex items-center gap-2 md:gap-4 text-3xl xl:text-5xl '>
               <img src='svg/instagram.svg' className=' w-12 md:w-16 xl:w-20 mix-blend-normal' /> 
               <div className='text-neutral-700 font-light'>air_d.a.v.e</div>
             </div>
           </a>
 
+          <img
+            src="/podpis/podpis-czerwony.webp"
+            alt="Podpis"
+            className="absolute md:left-0 top-14 max-md:left-1/2 max-md:-translate-x-1/2 md:top-0 z-30 w-[260px] md:w-[280px]  pointer-events-none mix-blend-normal"
+          />
+
            <header className='absolute inset-0 top-0 z-10 w-full h-fit pr-1 bg-white mix-blend-screen backdrop-blur-3xl transform-gpu will-change-transform select-none rounded-none'>
 
             <div className='mt-[2vh] mb-[4vh] flex items-center gap-2 md:gap-4 text-3xl md:text-5xl opacity-0 '>
-              <div className='w-12 h-12 md:h-20 md:w-20 mix-blend-normal' /> 
+              <div className='w-12 h-24 md:h-20 md:w-20 mix-blend-normal' /> 
             </div>
+
 
             <FitText
               text="Drone Operator"
@@ -121,6 +132,13 @@ const Hero = () => {
 
 
           <div className='absolute top-0 w-full h-[100svh]'> 
+              {!isReady && (
+                <img
+                  src={BLUR}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl"
+                />
+              )}
             <video 
                 ref={ videoRef }
                 autoPlay 
@@ -128,11 +146,13 @@ const Hero = () => {
                 muted 
                 className='object-cover w-full h-full ' 
                 playsInline
-                preload="auto"
+                preload="metadata"
+                poster='POSTER'
+                onCanPlay={() => setIsReady(true)} 
                 // poster="/images/rolka-poster.jpg"
                 > 
-                  <source src="videos/rolka.webm" type="video/webm" />
-                  <source src="videos/rolka.mp4" type="video/mp4" />
+                  <source src="videos/rolka-2mbps.webm" type="video/webm" />
+                  <source src="videos/rolka-2mbps.mp4" type="video/mp4" />
                   {/* <source src="videos/rolka.mov" type="video/mov" /> */}
               </video>
           </div> 

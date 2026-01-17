@@ -31,7 +31,7 @@ const dawid = [
 const dronVideo = [
   {
     title: "4K (3840×2160)",
-    desc: "24/25/30 fps",
+    desc: "24/25/30/50/60 fps",
   },
   {
     title: "2.7K (2688×1512)",

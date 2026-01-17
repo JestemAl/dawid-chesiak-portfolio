@@ -58,7 +58,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
               </div>
           </div>
 
-          <div className='text-2xl  font-extralight mb-2 md:col-start-1 md:col-span-3 z-10 leading-[0.9] space-y-4'>
+          <div className='text-xl  font-light mb-2 md:col-start-1 md:col-span-3 z-10 leading-[0.9] space-y-4'>
             <div className='md:text-5xl 2xl:text-6xl'> Latam dronem już od ponad 5 lat</div>
             <div className='md:hidden md:col-start-7 md:col-span-2'> Działam w Bydgoszczy i okolicach </div>
           </div>

@@ -17,7 +17,6 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
           pin: true,
           pinSpacing: false,
           scrub: true
-
         })
       }, {scope: aboutSectionRef})
       
@@ -59,7 +58,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
           </dl>
 
           
-        <div className='font-light text-right text-xs md:text-2xl uppercase'>
+        <div className='font-medium text-right text-xs md:text-2xl uppercase'>
             Jak chcesz coś więcej — nie bój się zapytać!
         </div>
 
