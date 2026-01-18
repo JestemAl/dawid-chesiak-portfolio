@@ -81,7 +81,7 @@ const Hero = () => {
           </div> */}
 
           <a href='https://www.instagram.com/air_d.a.v.e/' target="_blank" >
-            <div className='ig-icon absolute top-0 md:right-0 mt-[2vh] z-30 mb-[4vh] px-3 md:px-4 flex items-center gap-2 md:gap-4 text-3xl xl:text-5xl '>
+            <div className='ig-icon absolute top-0 md:right-0 mt-[2vh] z-30 mb-[4vh] px-3 md:px-4 flex md:flex-row-reverse items-center gap-2 md:gap-4 text-3xl xl:text-5xl '>
               <img src='svg/instagram.svg' className=' w-12 md:w-16 xl:w-20 mix-blend-normal' /> 
               <div className='text-neutral-700 font-light'>air_d.a.v.e</div>
             </div>

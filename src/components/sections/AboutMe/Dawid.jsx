@@ -35,7 +35,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
   return (
     <>
     <section ref={dawidSectionRef} className='section relative h-[200svh] w-screen flex-none z-20  md:bg-neutral-950 text-white flex flex-col justify-start items-center'>
-      <div className='max-w-[80rem] md:h-[80vh] md:mt-[10vh] w-full flex flex-col justify-between md:self-center  md:p-12 xl:px-16 xl:py-12 h-[100svh]'>
+      <div className='max-w-[80rem] md:h-[80vh] md:mt-[10vh] w-full flex flex-col justify-between md:self-center  md:p-12 xl:px-16 xl:py-12 h-[50svh]'>
 
         <div className='absolute inset-0 h-[100svh] flex flex-col  md:flex-row md:items-center md:justify-center w-full'>
           
