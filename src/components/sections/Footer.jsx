@@ -1,17 +1,13 @@
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
 import FitText from '../text/FitText'
+import Modal from '../ui/Modal'
+import PrivacyPolicy from './PrivacyPolicy'
 
 const Footer = () => {
-  const footerRef = useRef(null)
-
-  useGSAP(() => {
-    // opcjonalnie animacja
-  }, [])
+  const [privacyOpen, setPrivacyOpen] = useState(false)
 
   return (
-    <footer ref={footerRef} className="bg-white relative" aria-labelledby="footer-heading">
+    <footer className="bg-white relative" aria-labelledby="footer-heading">
 
           <img
             src="/podpis/podpis-czerwony.webp"
@@ -142,16 +138,24 @@ const Footer = () => {
             © {new Date().getFullYear()} Dawid Chęsiak. Wszelkie prawa zastrzeżone.
           </small>
           <small className="text-xs text-white/70">
-            <a
-              href="#polityka-prywatnosci"
+            <button
+              onClick={() => setPrivacyOpen(true)}
               className="underline underline-offset-4 decoration-white/30 hover:decoration-white hover:text-white transition
                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 rounded"
             >
               Polityka prywatności
-            </a>
+            </button>
           </small>
         </div>
       </div>
+      <Modal
+        isOpen={privacyOpen}
+        onClose={() => setPrivacyOpen(false)}
+        title="Polityka prywatności"
+      >
+        <PrivacyPolicy />
+      </Modal>
+
     </footer>
   )
 }

@@ -9,30 +9,37 @@
     <!-- Title -->
     <title>Dawid Chęsiak – Operator Drona | Bydgoszcz i okolice</title>
 
+    <!-- Canonical – update when domain changes -->
+    <link rel="canonical" href="https://dawid-drone-operator.netlify.app/" />
+
     <!-- Basic SEO -->
     <meta
       name="description"
       content="Nagrania i zdjęcia z drona – Bydgoszcz i okolice. Ujęcia nieruchomości, eventów, budów i promocji firm. Skontaktuj się po wycenę."
     />
+    <meta name="author" content="Dawid Chęsiak" />
     <meta name="theme-color" content="#0a0a0a" />
 
-    <!-- Favicon / App Icons (podpis) -->
-    <!-- Upewnij się, że plik istnieje: public/podpis/podpis-czarny.png -->
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Favicon -->
     <link rel="icon" href="/favicon/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-black-bold-rounded-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/favicon-black-rounded-180.png" />
 
-
     <!-- Open Graph (Facebook / LinkedIn) -->
-    <!-- Jeśli chcesz, daj też osobny obraz og: np. /images/og.jpg (1200x630) -->
+    <!-- Replace og:image with a dedicated 1200×630 image when available -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content="Dawid Chęsiak – Operator Drona" />
+    <meta property="og:url" content="https://dawid-drone-operator.netlify.app/" />
     <meta property="og:title" content="Dawid Chęsiak – Operator Drona" />
     <meta
       property="og:description"
       content="Nagrania i zdjęcia z drona – Bydgoszcz i okolice. Ujęcia nieruchomości, eventów, budów i promocji firm."
     />
-    <meta property="og:image" content="/podpis/podpis-czarny.png" />
+    <meta property="og:image" content="https://dawid-drone-operator.netlify.app/podpis/podpis-czarny.webp" />
 
     <!-- Twitter (X) -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -41,7 +48,33 @@
       name="twitter:description"
       content="Nagrania i zdjęcia z drona – Bydgoszcz i okolice."
     />
-    <meta name="twitter:image" content="/podpis/podpis-czarny.png" />
+    <meta name="twitter:image" content="https://dawid-drone-operator.netlify.app/podpis/podpis-czarny.webp" />
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dawid Chęsiak",
+      "jobTitle": "Operator Drona",
+      "description": "Nagrania i zdjęcia z drona – Bydgoszcz i okolice. Ujęcia nieruchomości, eventów, budów i promocji firm.",
+      "url": "https://dawid-drone-operator.netlify.app/",
+      "telephone": "+48797921666",
+      "email": "imdave.kontakt@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bydgoszcz",
+        "addressCountry": "PL"
+      },
+      "sameAs": [
+        "https://www.instagram.com/air_d.a.v.e/"
+      ],
+      "knowsAbout": ["Fotografia lotnicza", "Nagrania dronem", "Operator drona", "Bydgoszcz"]
+    }
+    </script>
+
+    <!-- Preload hero video (LCP on desktop) -->
+    <link rel="preload" as="video" href="/videos/rolka-2mbps.webm" type="video/webm" />
 
     <!-- Fonts: preconnect + stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -53,7 +86,48 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!--
+        Static content for search engine crawlers (Wave 1, HTML-only pass).
+        Invisible to users when JavaScript is enabled.
+        React replaces this on mount — no effect on the live site.
+      -->
+      <noscript>
+        <main>
+          <h1>Bydgoszcz i okolice – nagrania i zdjęcia przy pomocy drona</h1>
+          <p>Dawid Chęsiak – operator drona działający w Bydgoszczy i okolicach.</p>
+
+          <section>
+            <h2>Zobacz świat z innej perspektywy</h2>
+            <p>Nagrania dronem i fotografia lotnicza</p>
+            <dl>
+              <div><dt>Ujęcia promocyjne</dt><dd>materiały wideo i zdjęcia dla firm, produktów i marek.</dd></div>
+              <div><dt>Eventy i wydarzenia</dt><dd>dynamiczne relacje z koncertów, imprez, zlotów.</dd></div>
+              <div><dt>Nieruchomości i architektura</dt><dd>zdjęcia i filmy z drona dla agentów i inwestorów.</dd></div>
+              <div><dt>Inspekcje i tereny</dt><dd>przeloty kontrolne nad budynkami, liniami, działkami.</dd></div>
+              <div><dt>Montaż wideo</dt><dd>cięcia, muzyka, koloryzacja i finalny eksport materiału.</dd></div>
+            </dl>
+          </section>
+
+          <section>
+            <h2>Jestem Dawid</h2>
+            <p>Latam dronem już od ponad 5 lat. Działam w Bydgoszczy i okolicach.</p>
+            <p>Używam DJI Mini 3 Pro.</p>
+          </section>
+
+          <section>
+            <h2>Moje Realizacje</h2>
+            <p>Galeria zdjęć i nagrań z drona.</p>
+          </section>
+
+          <address>
+            <p>Telefon: <a href="tel:+48797921666">+48 797 921 666</a></p>
+            <p>E-mail: <a href="mailto:imdave.kontakt@gmail.com">imdave.kontakt@gmail.com</a></p>
+            <p>Instagram: <a href="https://www.instagram.com/air_d.a.v.e/">@air_d.a.v.e</a></p>
+          </address>
+        </main>
+      </noscript>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

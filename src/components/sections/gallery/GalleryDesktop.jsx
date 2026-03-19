@@ -19,14 +19,14 @@ const Gallery = () => {
 
       
 <section className="image-grid container">
-  <div className="image_cont"><img loading="lazy" src="/photos/fota1.webp" alt="" /></div>
-  <div className="image_cont"><img loading="lazy" src="/photos/fota3.webp" alt="" /></div>
-  <div className="image_cont"><img loading="lazy" src="/photos/fota4.webp" alt="" /></div>
-  <div className="image_cont"><img loading="lazy" src="/photos/fota5.webp" alt="" /></div>
-  <div className="image_cont"><img loading="lazy" src="/photos/fota6.webp" alt="" /></div>
-  <div className="image_cont"><img loading="lazy" src="/photos/fota7.webp" alt="" /></div>
-  <div className="image_cont"><img loading="lazy" src="/photos/fota8.webp" alt="" /></div>
-  <div className="image_cont"><img loading="lazy" src="/photos/fota9.webp" alt="" /></div>
+  <div className="image_cont"><img loading="eager" src="/photos/fota1.webp" alt="Lotnicze zdjęcie z drona – realizacja 1" /></div>
+  <div className="image_cont"><img loading="eager" src="/photos/fota3.webp" alt="Lotnicze zdjęcie z drona – realizacja 2" /></div>
+  <div className="image_cont"><img loading="eager" src="/photos/fota4.webp" alt="Lotnicze zdjęcie z drona – realizacja 3" /></div>
+  <div className="image_cont"><img loading="lazy" src="/photos/fota5.webp" alt="Lotnicze zdjęcie z drona – realizacja 4" /></div>
+  <div className="image_cont"><img loading="lazy" src="/photos/fota6.webp" alt="Lotnicze zdjęcie z drona – realizacja 5" /></div>
+  <div className="image_cont"><img loading="lazy" src="/photos/fota7.webp" alt="Lotnicze zdjęcie z drona – realizacja 6" /></div>
+  <div className="image_cont"><img loading="lazy" src="/photos/fota8.webp" alt="Lotnicze zdjęcie z drona – realizacja 7" /></div>
+  <div className="image_cont"><img loading="lazy" src="/photos/fota9.webp" alt="Lotnicze zdjęcie z drona – realizacja 8" /></div>
 </section>
 
       

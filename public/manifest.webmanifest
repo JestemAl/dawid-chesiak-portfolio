@@ -1,0 +1,22 @@
+{
+  "name": "Dawid Chęsiak – Operator Drona",
+  "short_name": "Dawid Drone",
+  "description": "Nagrania i zdjęcia z drona – Bydgoszcz i okolice.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "lang": "pl",
+  "icons": [
+    {
+      "src": "/favicon/favicon-black-rounded-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon/favicon-black-bold-rounded-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

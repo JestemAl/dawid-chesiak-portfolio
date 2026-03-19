@@ -98,7 +98,6 @@ h2 {   font-family: "Big Shoulders", sans-serif;
   height: 135%;
   object-fit: cover;
   bottom: 0;
-  will-change: transform;
 }
 
 /* ROZKŁAD + wysokości (1 zdjęcie na wiersz) */
