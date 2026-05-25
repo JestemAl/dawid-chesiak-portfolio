@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { lazy, Suspense, useState } from 'react'
 import FitText from '../text/FitText'
 import Modal from '../ui/Modal'
-import PrivacyPolicy from './PrivacyPolicy'
+
+const PrivacyPolicy = lazy(() => import('./PrivacyPolicy'))
 
 const Footer = () => {
   const [privacyOpen, setPrivacyOpen] = useState(false)
@@ -153,7 +154,9 @@ const Footer = () => {
         onClose={() => setPrivacyOpen(false)}
         title="Polityka prywatności"
       >
-        <PrivacyPolicy />
+        <Suspense fallback={null}>
+          <PrivacyPolicy />
+        </Suspense>
       </Modal>
 
     </footer>

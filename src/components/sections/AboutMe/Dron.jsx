@@ -39,8 +39,15 @@ const Dron = ({dronSectionRef}) => {
             </div>
           <a target='blank' href='https://dji-polska.pl/drony/dji-mini-3-pro/#specification'
             className='md:col-start-3 md:col-span-4 h-[50vh] w-full object-contain mb-2 bg-white'>
-            <img 
-              src='/images/dji-mini.png'
+            <img
+              src='/images/dji-mini-600.webp'
+              srcSet='/images/dji-mini-600.webp 600w, /images/dji-mini-1000.webp 1000w'
+              sizes='(min-width: 768px) 600px, 90vw'
+              alt='DJI Mini 3 Pro'
+              width='600'
+              height='600'
+              loading='lazy'
+              decoding='async'
               className=''
               />
             </a>

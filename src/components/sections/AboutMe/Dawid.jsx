@@ -66,8 +66,14 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 
             <div className='md:col-end-7 md:col-span-4 flex justify-center w-full'>
               <img
-                src='/photos/dawid.png'
+                src='/photos/dawid-600.webp'
+                srcSet='/photos/dawid-600.webp 600w, /photos/dawid-1200.webp 1200w'
+                sizes='(min-width: 768px) 600px, 90vw'
                 alt='Dawid Chęsiak – operator drona, Bydgoszcz'
+                width='600'
+                height='748'
+                loading='lazy'
+                decoding='async'
                 className='max-h-[50vh] object-cover w-full '
               />
             </div>

@@ -81,7 +81,7 @@ const Hero = () => {
 
           <a href='https://www.instagram.com/air_d.a.v.e/' target="_blank" >
             <div className='ig-icon absolute top-0 md:right-0 mt-[2vh] z-30 mb-[4vh] px-3 md:px-4 flex md:flex-row-reverse items-center gap-2 md:gap-4 text-3xl xl:text-5xl '>
-              <img src='svg/instagram.svg' className=' w-12 md:w-16 xl:w-20 mix-blend-normal' /> 
+              <img src='svg/instagram.svg' alt="" width="80" height="80" loading="lazy" decoding="async" className=' w-12 md:w-16 xl:w-20 mix-blend-normal' />
               <div className='text-neutral-700 font-light'>air_d.a.v.e</div>
             </div>
           </a>
@@ -89,6 +89,9 @@ const Hero = () => {
           <img
             src="/podpis/podpis-czerwony.webp"
             alt="Podpis"
+            width="280"
+            height="120"
+            decoding="async"
             className="absolute md:left-0 top-14 max-md:left-1/2 max-md:-translate-x-1/4 md:top-0 z-30 w-[260px] md:w-[280px]  pointer-events-none mix-blend-normal"
           />
 
@@ -130,31 +133,32 @@ const Hero = () => {
         </div>
 
 
-          <div className='absolute top-0 w-full h-[100svh]'> 
+          <div className='absolute top-0 w-full h-[100svh]'>
               {!isReady && (
                 <img
                   src={BLUR}
                   alt=""
+                  width="40"
+                  height="22"
+                  decoding="async"
                   className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl"
                 />
               )}
-            <video 
+            <video
                 ref={ videoRef }
-                autoPlay 
+                autoPlay
                 loop
-                muted 
-                className='object-cover w-full h-full ' 
+                muted
+                className='object-cover w-full h-full '
                 playsInline
                 preload="metadata"
                 poster={POSTER}
-                onCanPlay={() => setIsReady(true)} 
-                // poster="/images/rolka-poster.jpg"
-                > 
+                onCanPlay={() => setIsReady(true)}
+                >
                   <source src="videos/rolka-2mbps.webm" type="video/webm" />
                   <source src="videos/rolka-2mbps.mp4" type="video/mp4" />
-                  {/* <source src="videos/rolka.mov" type="video/mov" /> */}
               </video>
-          </div> 
+          </div>
         </section>
   )
 }
