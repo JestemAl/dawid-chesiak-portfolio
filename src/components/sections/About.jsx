@@ -11,23 +11,26 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
       const aboutSectionRef = useRef()
 
       useGSAP(() => {
-        ScrollTrigger.create({
-          trigger: aboutSectionRef.current,
-          start: "top top",
-          pin: true,
-          pinSpacing: false,
-          scrub: true
+        const id = requestAnimationFrame(() => {
+          ScrollTrigger.create({
+            trigger: aboutSectionRef.current,
+            start: "top top",
+            pin: true,
+            pinSpacing: false,
+            scrub: true
+          })
         })
+        return () => cancelAnimationFrame(id)
       }, {scope: aboutSectionRef})
       
 
   return (
-    <section ref={aboutSectionRef} className='h-[150vh] w-screen z-20 bg-stone-200 flex flex-col justify-start items-center'>
+    <section ref={aboutSectionRef} id='oferta' className='h-[150vh] w-screen z-20 bg-stone-200 flex flex-col justify-start items-center'>
       <div className='relative max-w-[120rem] w-full flex flex-col justify-between p-6 md:p-12 xl:px-16 xl:py-10 h-[100svh]'>
 
         <div className='title flex flex-col gap-4'>
           <div className='w-full flex justify-between md:justify-start md:space-x-4 font-light text-sm md:text-xl xl:text-2xl md:font-light'>
-            <div className='md:'>01</div>
+            <div>01</div>
             <div className='uppercase' >To moja pasja</div>
           </div>
 
@@ -41,7 +44,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
           </div>
         </div>
 
-        <dl className="md:absolute md:inset-0 md:w-fit md:h-[screen] md:pt-[10vh] md:justify-center md:items-start w-fit flex flex-col mx-auto space-y-4 md:space-y-4">
+        <dl className="md:absolute md:inset-0 md:w-fit md:pt-[10vh] md:justify-center md:items-start w-fit flex flex-col mx-auto space-y-4 md:space-y-4">
             {services.map(({ title, desc }, i) => (
               <div
                 key={i}

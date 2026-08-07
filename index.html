@@ -29,7 +29,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/favicon-black-rounded-180.png" />
 
     <!-- Open Graph (Facebook / LinkedIn) -->
-    <!-- Replace og:image with a dedicated 1200×630 image when available -->
+    <!-- og-image generowany przez scripts/generate-og.mjs -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pl_PL" />
     <meta property="og:site_name" content="Dawid Chęsiak – Operator Drona" />
@@ -39,7 +39,10 @@
       property="og:description"
       content="Nagrania i zdjęcia z drona – Bydgoszcz i okolice. Ujęcia nieruchomości, eventów, budów i promocji firm."
     />
-    <meta property="og:image" content="https://dawid-drone-operator.netlify.app/podpis/podpis-czarny.webp" />
+    <meta property="og:image" content="https://dawid-drone-operator.netlify.app/og/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter (X) -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -48,7 +51,7 @@
       name="twitter:description"
       content="Nagrania i zdjęcia z drona – Bydgoszcz i okolice."
     />
-    <meta name="twitter:image" content="https://dawid-drone-operator.netlify.app/podpis/podpis-czarny.webp" />
+    <meta name="twitter:image" content="https://dawid-drone-operator.netlify.app/og/og-image.jpg" />
 
     <!-- JSON-LD structured data -->
     <script type="application/ld+json">
@@ -73,28 +76,81 @@
     }
     </script>
 
-    <!-- Preload hero poster (LCP element on first paint) -->
-    <link rel="preload" as="image" href="/photos/rolka-poster.webp" fetchpriority="high" />
-
-    <!-- Fonts: preconnect + non-blocking stylesheet -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload plakatu hero – element LCP, malowany przez statyczny szkielet
+         w <body> jeszcze zanim wystartuje React (mobile dostaje wariant 800w) -->
     <link
       rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Imperial+Script&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      onload="this.rel='stylesheet'"
+      as="image"
+      href="/photos/rolka-poster.webp"
+      imagesrcset="/photos/rolka-poster-800.webp 800w, /photos/rolka-poster.webp 1600w"
+      imagesizes="100vw"
+      fetchpriority="high"
     />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Imperial+Script&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
+
+    <!-- Szkielet pierwszego ekranu: maluje się bez czekania na JS -->
+    <style>
+      #boot-hero {
+        position: absolute;
+        inset: 0;
+        height: 100svh;
+        overflow: hidden;
+        background: #c8e5fc;
+      }
+      #boot-hero .bh-poster {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      #boot-hero .bh-sign {
+        position: absolute;
+        top: 3.5rem;
+        left: 50%;
+        transform: translateX(-25%);
+        width: 260px;
+        height: auto;
+      }
+      @media (min-width: 768px) {
+        #boot-hero .bh-sign {
+          top: 0;
+          left: 0;
+          transform: none;
+          width: 280px;
+        }
+      }
+    </style>
   </head>
 
   <body>
     <div id="root">
+      <!--
+        Szkielet pierwszego ekranu (plakat hero + podpis) – maluje się natychmiast,
+        bez czekania na pobranie i wykonanie bundla, więc FCP nie zależy od JS.
+        React czyści #root przy montowaniu, więc szkielet znika sam.
+      -->
+      <div id="boot-hero" aria-hidden="true">
+        <img
+          class="bh-poster"
+          src="/photos/rolka-poster.webp"
+          srcset="/photos/rolka-poster-800.webp 800w, /photos/rolka-poster.webp 1600w"
+          sizes="100vw"
+          alt=""
+          width="1600"
+          height="900"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <img
+          class="bh-sign"
+          src="/podpis/podpis-czerwony-560.webp"
+          alt=""
+          width="280"
+          height="196"
+          decoding="async"
+        />
+      </div>
+
       <!--
         Static content for search engine crawlers (Wave 1, HTML-only pass).
         Invisible to users when JavaScript is enabled.

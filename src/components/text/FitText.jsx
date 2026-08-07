@@ -27,15 +27,8 @@ export default function FitText({
   horizontalPadding = 0,
   className = "flex items-center justify-center h-fit",
   textClassName = "orbitron font-black leading-none whitespace-nowrap",
-  containerRef,
 }) {
   const localContainerRef = useRef(null);
-  const setContainerRef = (node) => {
-    localContainerRef.current = node;
-    if (typeof containerRef === "function") containerRef(node);
-    else if (containerRef && typeof containerRef === "object") containerRef.current = node;
-  };
-
   const measureRef = useRef(null);
 const [fontSize, setFontSize] = useState(min);
 const [ready, setReady] = useState(false);
@@ -64,13 +57,17 @@ const recalc = useCallback(() => {
 
   useLayoutEffect(() => {
     recalc();
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(() => recalc());
+    if (document.fonts) {
+      if (document.fonts.ready) document.fonts.ready.then(() => recalc());
+      // fonts.ready potrafi się rozwiązać zanim webfont faktycznie wskoczy –
+      // wtedy tekst zostaje zmierzony fallbackiem; loadingdone łata ten przypadek
+      document.fonts.addEventListener("loadingdone", recalc);
+      return () => document.fonts.removeEventListener("loadingdone", recalc);
     }
   }, [text, recalc]);
 
   return (
-    <div ref={setContainerRef} className={className}>
+    <div ref={localContainerRef} className={className}>
       {/* Visible text */}
 <span
   className={textClassName}

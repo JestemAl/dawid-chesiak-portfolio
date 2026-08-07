@@ -23,7 +23,33 @@ const tasks = [
       { out: path.join(publicDir, 'images', 'dji-mini-1000.webp'), width: 1000, format: 'webp', quality: 80 },
     ],
   },
+  {
+    src: path.join(publicDir, 'podpis', 'podpis-czerwony.webp'),
+    outputs: [
+      // Hero używa max 280px szer., footer aż 480px → render 560px @ retina dla obu
+      { out: path.join(publicDir, 'podpis', 'podpis-czerwony-560.webp'), width: 560, format: 'webp', quality: 55 },
+    ],
+  },
 ]
+
+// Galeria – pliki fota*.webp są oryginalnie ~3800–4600px szerokości i 200–870KB.
+// Na siatce wyświetlają się max ~600–800px w jednej kolumnie. Generujemy 800w i 1600w (retina).
+for (let n = 1; n <= 9; n++) {
+  if (n === 2) continue // brak fota2 w projekcie
+  const src = path.join(publicDir, 'photos', `fota${n}.webp`)
+  try {
+    await fs.access(src)
+  } catch {
+    continue
+  }
+  tasks.push({
+    src,
+    outputs: [
+      { out: path.join(publicDir, 'photos', `fota${n}-800.webp`), width: 800, format: 'webp', quality: 75 },
+      { out: path.join(publicDir, 'photos', `fota${n}-1600.webp`), width: 1600, format: 'webp', quality: 72 },
+    ],
+  })
+}
 
 for (const task of tasks) {
   for (const o of task.outputs) {

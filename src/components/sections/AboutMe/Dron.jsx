@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { dronVideo } from '../../../constants'
 
 const Dron = ({dronSectionRef}) => {
@@ -20,14 +20,14 @@ const Dron = ({dronSectionRef}) => {
               <div className='max-w-[120rem] w-full md:item  ]'>
                   <div className='title flex flex-col gap-4 '>
                   <div className='w-full flex justify-between md:justify-start md:space-x-4 font-light text-sm md:text-xl xl:text-2xl md:font-light'>
-                      <div className='md:'>03</div>
+                      <div>03</div>
                       <div className='uppercase' >mój sprzęt</div>
                   </div>
 
                   <div className='flex flex-col max-w-3xl uppercase w-full md:w-fit'>
                       <h2 className='text-4xl md:text-6xl lg:text-7xl '>DJI Mini 3 Pro</h2>
                       <div className='text-sm md:text-base lg:text-xl w-full md:justify-end'>
-                      <p className='text-justify after:inline-block after:w-full md:text-right'>Dron z 4k</p>
+                      <p className='text-white/60 md:text-right md:text-white'>Dron z 4K</p>
                     </div>
                   </div>
                 </div>
@@ -37,8 +37,11 @@ const Dron = ({dronSectionRef}) => {
             <div className='hidden md:block md:self-start md:row-start-1 md:col-span-4 md:text-5xl 2xl:text-6xl z-10 font-light mix-blend-difference'>
                 Do nagrywek używam drona <span className='font-semibold '> DJI Mini 3 Pro</span>
             </div>
-          <a target='blank' href='https://dji-polska.pl/drony/dji-mini-3-pro/#specification'
-            className='md:col-start-3 md:col-span-4 h-[50vh] w-full object-contain mb-2 bg-white'>
+          {/* Zdjęcie drona ma przezroczyste tło, więc biel daje kontener. Sztywne
+              h-[50vh] przy wyższym oknie wystawało spod kwadratowego kadru białym
+              pasem (2560×1440 → 240 px); aspect-square trzyma kartę w proporcji zdjęcia. */}
+          <a target='_blank' rel='noopener noreferrer' href='https://dji-polska.pl/drony/dji-mini-3-pro/#specification'
+            className='md:col-start-3 md:col-span-4 w-full aspect-square max-h-[50vh] mb-2 bg-white flex items-center justify-center'>
             <img
               src='/images/dji-mini-600.webp'
               srcSet='/images/dji-mini-600.webp 600w, /images/dji-mini-1000.webp 1000w'
@@ -48,7 +51,7 @@ const Dron = ({dronSectionRef}) => {
               height='600'
               loading='lazy'
               decoding='async'
-              className=''
+              className='h-full w-full object-contain'
               />
             </a>
 

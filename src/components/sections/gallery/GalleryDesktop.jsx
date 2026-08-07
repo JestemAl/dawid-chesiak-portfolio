@@ -1,11 +1,9 @@
 import React from 'react'
+import { galleryPhotos } from '../../../constants'
 
 const Gallery = () => {
   return (
     <section className='gallery-content bg-neutral-950'>
-      <div className="spacer md:hidden" />
-
-
         <div className='title  top-0 flex flex-col items-center justify-center h-[100svh]  text-white'>
 
             <h2 className='text-4xl md:text-6xl lg:text-8xl uppercase'>
@@ -19,14 +17,20 @@ const Gallery = () => {
 
       
 <section className="image-grid container">
-  <div className="image_cont"><img loading="lazy" decoding="async" src="/photos/fota1.webp" alt="Lotnicze zdjęcie z drona – realizacja 1" /></div>
-  <div className="image_cont"><img loading="lazy" decoding="async" src="/photos/fota3.webp" alt="Lotnicze zdjęcie z drona – realizacja 2" /></div>
-  <div className="image_cont"><img loading="lazy" decoding="async" src="/photos/fota4.webp" alt="Lotnicze zdjęcie z drona – realizacja 3" /></div>
-  <div className="image_cont"><img loading="lazy" decoding="async" src="/photos/fota5.webp" alt="Lotnicze zdjęcie z drona – realizacja 4" /></div>
-  <div className="image_cont"><img loading="lazy" decoding="async" src="/photos/fota6.webp" alt="Lotnicze zdjęcie z drona – realizacja 5" /></div>
-  <div className="image_cont"><img loading="lazy" decoding="async" src="/photos/fota7.webp" alt="Lotnicze zdjęcie z drona – realizacja 6" /></div>
-  <div className="image_cont"><img loading="lazy" decoding="async" src="/photos/fota8.webp" alt="Lotnicze zdjęcie z drona – realizacja 7" /></div>
-  <div className="image_cont"><img loading="lazy" decoding="async" src="/photos/fota9.webp" alt="Lotnicze zdjęcie z drona – realizacja 8" /></div>
+  {galleryPhotos.map(({ id, alt }) => (
+    <div className="image_cont" key={id}>
+      <img
+        decoding="async"
+        loading="lazy"
+        src={`/photos/fota${id}-800.webp`}
+        srcSet={`/photos/fota${id}-800.webp 800w, /photos/fota${id}-1600.webp 1600w`}
+        sizes="(min-width: 1024px) 33vw, 50vw"
+        width="800"
+        height="450"
+        alt={alt}
+      />
+    </div>
+  ))}
 </section>
 
       
