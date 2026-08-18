@@ -239,7 +239,21 @@ const Footer = () => {
           <small className="hidden text-xs font-light uppercase tracking-[0.3em] text-white/30 md:block">
             Operator drona — Bydgoszcz
           </small>
-          <small className="text-xs text-white/60">
+          <small className="flex items-center gap-2 text-xs text-white/60">
+            <span className="text-white/50">
+              Realizacja:{" "}
+              <a
+                href="https://soraweb.pl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white ${FOCUS_RING}`}
+              >
+                SoraWeb Studio
+              </a>
+            </span>
+            <span aria-hidden="true" className="text-white/25">
+              ·
+            </span>
             <button
               onClick={() => setPrivacyOpen(true)}
               className={`underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white ${FOCUS_RING}`}
