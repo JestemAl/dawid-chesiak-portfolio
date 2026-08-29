@@ -2,7 +2,7 @@ import React, { lazy, Suspense, useEffect, useState } from 'react'
 import FitText from '../text/FitText'
 import Modal from '../ui/Modal'
 import FooterAurora from '../ui/FooterAurora'
-import { services } from '../../constants'
+import { services, studioCredit } from '../../constants'
 import { scrollToSection, scrollToTop } from '../../utils/scroll'
 
 const PrivacyPolicy = lazy(() => import('./PrivacyPolicy'))
@@ -241,14 +241,14 @@ const Footer = () => {
           </small>
           <small className="flex items-center gap-2 text-xs text-white/60">
             <span className="text-white/50">
-              Realizacja:{" "}
+              {studioCredit.label}{" "}
               <a
-                href="https://soraweb.pl"
+                href={studioCredit.href}
                 target="_blank"
-                rel="noopener noreferrer"
-                className={`underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white ${FOCUS_RING}`}
+                rel={studioCredit.rel}
+                className={`text-white/60 underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white ${FOCUS_RING}`}
               >
-                SoraWeb Studio
+                {studioCredit.name}
               </a>
             </span>
             <span aria-hidden="true" className="text-white/25">

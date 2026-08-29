@@ -80,6 +80,16 @@ const dawidFacts = [
   { title: "Z pasji", desc: "nie z przypadku" },
 ];
 
+// Kredyt wykonawcy w stopce. rel: "nofollow noopener" – bez "noreferrer",
+// które ucina nagłówek Referer i sprawia, że wejścia znikają z analityki
+// studia jako ruch bezpośredni. Anchor zawsze nazwą marki, nigdy frazą kluczową.
+const studioCredit = {
+  label: "Realizacja:",
+  name: "SoraWeb Studio",
+  href: "https://soraweb.pl/realizacje/dawid-chesiak-dron?utm_source=dawid-drone-operator.netlify.app&utm_medium=referral&utm_campaign=footer-credit",
+  rel: "nofollow noopener",
+};
+
 const dronVideo = [
   {
     title: "4K (3840×2160)",
@@ -102,6 +112,7 @@ const dronVideo = [
 
 export {
   services,
+  studioCredit,
   galleryPhotos,
   reels,
   dawidFacts,
